@@ -63,7 +63,7 @@ def predict (race,age,bisphosphonate,duration,other,weight,height,bmi,ntf,parent
 
 
 
-@app.get("/")
+@app.post("/")
 async def submit_form(data: FormData):
     print("SHIVAM AMIN2")
     try:
