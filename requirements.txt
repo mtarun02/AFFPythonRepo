@@ -1,8 +1,8 @@
 fastapi==0.95.1 
-uvicorn==0.22.0 
-pydantic
+uvicorn==0.29.0 
+pydantic==1.10.8
 pandas<2.0.0
-pycaret
+pycaret==3.2.0
 catboost
 xgboost
-scikit-learn
+scikit-learn==1.2.2
