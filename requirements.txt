@@ -4,5 +4,6 @@ pydantic
 pandas<2.0.0
 pycaret
 catboost
+joblib
 xgboost
 scikit-learn==1.2.2
