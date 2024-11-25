@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow requests from all origins
+    allow_origins=["https://aff-hosting.onrender.com"],  # Allow requests from all origins
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
