@@ -105,7 +105,7 @@ def predict(data):
     }
 
 
-@app.post("/submit/")
+@app.post("/")
 async def submit_form(data: FormData):
     try:
         # Get the form data as a dictionary
