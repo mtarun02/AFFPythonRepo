@@ -21,7 +21,9 @@ logger = logging.getLogger(__name__)
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
+    #allow_origins=["*"],  # Allow requests from all origins
     allow_origins=["https://aff-hosting.onrender.com"],  # Allow requests from all origins
+
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -66,7 +68,7 @@ def convert_to_nan(value):
 
 
 #load model and create it 
-model = load_model("AFF_Prediction_ET")
+model = load_model("AFF_Prediction_ET_T_scores")
 input_model = create_model
 
 
@@ -89,7 +91,7 @@ def predict(data):
         'Medial cortical thickness at 50 mm', 'Lateral cortical thickness at 50 mm',
         'Femoral Horizontal Offset', 'Femoral neck angle', 'Femural Head Diameter',
         'Femoral Vertical Offset', 'Femoral neck thickness',
-        'DXA Femoral Neck #1 BMD (g/cm^2)', 'DXA L1-L4 BMD (g/cm^2)',
+        'DXA Femoral Neck #1 T-score (g/cm^2)', 'DXA L1-L4 T-score (g/cm^2)',
         'FRAX Score - online calculator major fracture (%)',
         'FRAX Score - online calculator hip fracture (%)'
     ])
@@ -103,8 +105,7 @@ def predict(data):
     }
 
 
-#@app.post("/submit/")
-@app.post("/")
+@app.post("/submit/")
 async def submit_form(data: FormData):
     try:
         # Get the form data as a dictionary
